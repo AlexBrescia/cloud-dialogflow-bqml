@@ -59,11 +59,11 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 const ROWS = results[0];
                 console.log('SQL Completed ' + ROWS[0].predicted_label);
                 agent.add(request.body.queryResult.outputContexts[0].parameters["given-name"] 
-                    + `, your ticket has been created. Someone will you contact shortly. `
+                    + ', your ticket has been created. Someone will you contact shortly. '
                     + ' The estimated response time is ' + ROWS[0].predicted_label + ' days.');
                 agent.add(new Card({
-                  title: `New ` + request.body.queryResult.outputContexts[0].parameters.category 
-                  + ` Request for ` + request.body.queryResult.outputContexts[0].parameters["given-name"]
+                  title: 'New ' + request.body.queryResult.outputContexts[0].parameters.category 
+                  + ' Request for ' + request.body.queryResult.outputContexts[0].parameters["given-name"]
                   + ' (Estimated Response Time: ' + ROWS[0].predicted_label + ' days)',
                   imageUrl: 'https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png',
                   text: 'Issue description: ' + request.body.queryResult.queryText,
