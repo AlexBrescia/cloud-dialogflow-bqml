@@ -17,6 +17,11 @@ Getting Started
 ---------------
 Visit the Google Codelabs site to follow along the guided steps.
 
+What is Included Here?
+---------------
+* The ml-helpdesk-bot.zip file can be imported into a Dialogflow agent. It will copy intents and entities for a simple helpdesk chatbot.
+* The index.js and package.json files can be used to create a Dialogflow fulfillment that integrates with BigQuery.
+
 License
 -------
 
