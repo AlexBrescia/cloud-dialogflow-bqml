@@ -22,7 +22,7 @@ const {Card, Suggestion} = require('dialogflow-fulfillment');
 const BIGQUERY = require('@google-cloud/bigquery');
 
 const BIGQUERY_CLIENT = new BIGQUERY({
-  projectId: 'your-project-id' // ** CHANGE THIS **
+  projectId: 'gmikels-test-codelab' // ** CHANGE THIS **
 });
 
 process.env.DEBUG = 'dialogflow:debug'; 
@@ -58,11 +58,13 @@ exports.dialogflowFirebaseFulfillment = functions.https.onRequest((request, resp
                 console.log(JSON.stringify(results[0]))
                 const ROWS = results[0];
                 console.log('SQL Completed ' + ROWS[0].predicted_label);
-                agent.add(`Your ticket has been created. Someone will you contact shortly.`);
+                agent.add(request.body.queryResult.outputContexts[0].parameters["given-name"] 
+                    + `, your ticket has been created. Someone will you contact shortly. `
+                    + ' The estimated response time is ' + ROWS[0].predicted_label + ' days.');
                 agent.add(new Card({
                   title: `New ` + request.body.queryResult.outputContexts[0].parameters.category 
                   + ` Request for ` + request.body.queryResult.outputContexts[0].parameters["given-name"]
-                  + ' (Estimated ETA: ' + ROWS[0].predicted_label + ' days)',
+                  + ' (Estimated Response Time: ' + ROWS[0].predicted_label + ' days)',
                   imageUrl: 'https://developers.google.com/actions/images/badges/XPM_BADGING_GoogleAssistant_VER.png',
                   text: 'Issue description: ' + request.body.queryResult.queryText,
                   buttonText: 'Go to Ticket Record',
