@@ -11,7 +11,7 @@ Wouldn’t it be awesome to have an accurate estimate of how long it will take f
 Prerequisites
 --------------
 * Basics concepts and constructs of Dialogflow. [Click here](https://dialogflow.com/docs/tutorial-build-an-agent) for an introductory Dialogflow tutorial that covers basic conversational design and fulfillment using a webhook.
-* Basic SQL and Node.js (or any coding language) knowledge
+* Basic SQL and Node.js (or any coding language) knowledge.
 
 Getting Started
 ---------------
