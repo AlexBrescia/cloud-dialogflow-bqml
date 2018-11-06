@@ -22,7 +22,7 @@ const {Card, Suggestion} = require('dialogflow-fulfillment');
 const BIGQUERY = require('@google-cloud/bigquery');
 
 const BIGQUERY_CLIENT = new BIGQUERY({
-  projectId: 'gmikels-test-codelab' // ** CHANGE THIS **
+  projectId: 'your-project-id' // ** CHANGE THIS **
 });
 
 process.env.DEBUG = 'dialogflow:debug'; 
